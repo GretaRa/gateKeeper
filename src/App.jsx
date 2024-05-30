@@ -24,14 +24,14 @@ function App() {
 			<div
 				className="flex h-screen justify-center items-center bg-mountain-gate bg-cover"
 				style={{
-					backgroundImage: "url('public/assets/images/gate-wide.jpeg')",
+					backgroundImage: "url('/assets/images/gate-wide.jpeg')",
 					backgroundSize: "cover",
 					backgroundPosition: "center",
 				}}
 			>
-				<div className="text-center flex flex-col gap-8">
-					<h1 className="text-8xl ">Gate Keeper</h1>
-					<h2 className="text-2xl">Choose Your Journey</h2>
+				<div className="text-center flex flex-col items-center gap-8">
+					<img src="/assets/images/title.png" alt="Gate Keeper Logo" />
+					<img className="max-w-[40rem]" src="/assets/images/subtitle.png" alt="Choose your journey" />
 					<div className="flex gap-4">
 						<button
 							onClick={() => handleOpenModal(true)}
