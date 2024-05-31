@@ -35,13 +35,13 @@ function App() {
 					<div className="flex gap-4">
 						<button
 							onClick={() => handleOpenModal(true)}
-							className="border-2 border-black rounded-md px-2"
+							className=" font-bold text-2xl rounded-md px-4 py-2 bg-blue-400 text-white"
 						>
 							New adventurer
 						</button>
 						<button
 							onClick={() => handleOpenModal(false)}
-							className="border-2 border-black rounded-md px-2"
+							className=" font-bold text-2xl rounded-md px-4 py-2 bg-indigo-400 text-white"
 						>
 							Continue an existing journey
 						</button>
