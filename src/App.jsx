@@ -3,6 +3,7 @@ import "./App.css";
 import Modal from "./components/Modal/Modal.jsx";
 import SignUpForm from "./components/Modal/SignUpForm.jsx";
 import LoginForm from "./components/Modal/LoginForm.jsx";
+import { FetchPractise } from "./components/practise.jsx";
 
 
 function App() {
