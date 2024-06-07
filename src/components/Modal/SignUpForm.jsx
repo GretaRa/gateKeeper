@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { PostRequest } from "./PostRequest";
+import { Alert } from "../Alert";
 
 const SignUpForm = () => {
 
@@ -8,6 +9,7 @@ const SignUpForm = () => {
 		email: "",
 		password: "",
 	});
+  const [fetchResponse, setFetchResponse] = useState();
 
 	const handleChange = (e) => {
 		setFormData({
@@ -33,6 +35,8 @@ const SignUpForm = () => {
 				headers
 			);
 			console.log("Response:", response);
+      setFetchResponse(response)
+      
 		} catch (error) {
 			console.error("Error:", error);
 		}
@@ -51,6 +55,7 @@ const SignUpForm = () => {
 					value={formData.username}
 					required
 				/>
+        {fetchResponse && fetchResponse.username ? <Alert alertMessage={fetchResponse.username} /> : null}
 			</div>
 			<div className="mb-4">
 				<label className="block text-gray-700">Email</label>
@@ -62,6 +67,7 @@ const SignUpForm = () => {
 					value={formData.email}
 					required
 				/>
+        {fetchResponse && fetchResponse.email ? <Alert alertMessage={fetchResponse.email} /> : null}
 			</div>
 			<div className="mb-4">
 				<label className="block text-gray-700">Password</label>
@@ -71,6 +77,8 @@ const SignUpForm = () => {
 					className="w-full px-3 py-2 border rounded"
 					name="password"
 					value={formData.password}
+          minLength={8}
+          maxLength={64}
 					required
 				/>
 			</div>

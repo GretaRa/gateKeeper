@@ -11,11 +11,11 @@ export const PostRequest = async (url, data, headers = {}) => {
 
 	try {
 		const response = await axios.request(config);
-		return response.data;
+		return response.data
 	} catch (error) {
 		if (error.response) {
-			console.error("Error response:", error.response.data);
-			throw error.response.data;
+			console.error("Error response:", error.response.data.errors);
+			return error.response.data.errors;
 		} else if (error.request) {
 			console.error("Error request:", error.request);
 			throw error.request;
