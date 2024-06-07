@@ -1,32 +1,27 @@
 import axios from "axios";
 
+export const PostRequest = async (url, data, headers = {}) => {
+	let config = {
+		method: "post",
+		maxBodyLength: Infinity,
+		url: url,
+		headers: headers,
+		data: data,
+	};
 
-export const PostRequest = async (data) => {
-  const response = await axios.post('http://localhost:8001/api/register', {
-    username: data.username,
-    password: data.password,
-    email: data.email
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log('postrequest', error);
-  });
-  return response.data;
+	try {
+		const response = await axios.request(config);
+		return response.data;
+	} catch (error) {
+		if (error.response) {
+			console.error("Error response:", error.response.data);
+			throw error.response.data;
+		} else if (error.request) {
+			console.error("Error request:", error.request);
+			throw error.request;
+		} else {
+			console.error("Error message:", error.message);
+			throw error.message;
+		}
+	}
 };
-
-// export const PostRequest = async (data) => {
-//   const response = await axios.post(
-//     'http://localhost:8001/api/register', {
-//             username: data.username,
-//             email: data.email,
-//             password: data.password
-//     }, {
-//       headers: {
-//         'Content-Type': 'multipart/form-data'
-//       }}
-//   );
-//   return response.data;
-// };
-

@@ -3,8 +3,6 @@ import "./App.css";
 import Modal from "./components/Modal/Modal.jsx";
 import SignUpForm from "./components/Modal/SignUpForm.jsx";
 import LoginForm from "./components/Modal/LoginForm.jsx";
-import { FetchPractise } from "./components/practise.jsx";
-
 
 function App() {
 	const [isModalOpen, setModalOpen] = useState(false);
@@ -19,7 +17,6 @@ function App() {
 		setModalOpen(false);
 	};
 
-  
 	return (
 		<>
 			<div
@@ -32,7 +29,11 @@ function App() {
 			>
 				<div className="text-center flex flex-col items-center gap-8">
 					<img src="/assets/images/title.png" alt="Gate Keeper Logo" />
-					<img className="max-w-[40rem]" src="/assets/images/subtitle.png" alt="Choose your journey" />
+					<img
+						className="max-w-[40rem]"
+						src="/assets/images/subtitle.png"
+						alt="Choose your journey"
+					/>
 					<div className="flex gap-4">
 						<button
 							onClick={() => handleOpenModal(true)}
